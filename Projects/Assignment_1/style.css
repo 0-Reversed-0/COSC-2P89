@@ -1,0 +1,101 @@
+/*
+  Name: Arhum Khan
+  Brock username: jn23pr
+  Student number: 8074114
+  Assignment: COSC 2P89 — Assignment 1
+*/
+
+
+body {
+    min-height: 100vh;
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation bar! */
+
+#top {
+    background-color: rgb(125, 125, 125);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 1vw 2vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+#top h1 {
+    font-family: "Bitcount Grid Single", sans-serif;
+    color: white;
+    font-weight: 300;
+    font-size: clamp(1rem, 3vw, 2rem);
+    margin: 0;
+    text-align: center;
+}
+
+#top nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+}
+
+#top a {
+    text-align: center;
+    font-family: "Bitcount Grid Single", sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+    padding: 0.3em 0.5em;
+}
+
+#top a:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+/* The Actual content of the website */
+
+.body {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(125, 125, 125);
+    width: 100%;
+    height: 3%;
+    padding-top: 0.5vh;
+
+    font-family: "Bitcount Grid Single", sans-serif;
+    font-size: clamp(0.2rem, 2vw, 1.2rem);
+    color: black;
+    text-align: center;
+}
+
+@media print {
+
+    body {
+      background: white;
+      color: black;
+    }
+  
+    nav{
+        display: none;
+    } 
+    
+    footer {
+      display: none;
+    }
+}
+  
