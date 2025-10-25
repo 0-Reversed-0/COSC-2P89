@@ -1,2 +1,2 @@
-# COSC-2P89
-This is the culmination of the Brock COSC 2P89 Course
+This repository holds all the web development projects ands labs I did across the fall.
+
