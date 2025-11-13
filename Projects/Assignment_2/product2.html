@@ -1,0 +1,116 @@
+<!--
+    Name: Arhum Khan
+    Brock username: jn23pr
+    Student number: 8074114
+    Assignment: COSC 2P89 — Assignment 2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Frequency Response</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..500&family=Doto:wght@100..500&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-con" href="imgs/music-wave.png">
+
+    <style>
+        .body {
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .body img {
+            width: 100%;
+            max-width: 40vw;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .body #right {
+            width: 100%;
+            max-width: 40vw;
+            height: auto;
+            background-color: rgb(125, 125, 125);
+            font-family: "Bitcount Grid Single", sans-serif;
+            font-size: clamp(0.2rem, 0.8em, 1rem);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top">
+        <h1>Koss: Porta Pro</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
+
+    <div class="body">
+        <img src="imgs/koss.jpg">
+
+        <div id="right">
+            <h2 style="font-weight: 400;">Koss: Porta Pro</h2>
+            <p><b>Price: $70</b></p>
+            <p>The Koss Porta Pro are iconic on-ear headphones known for their retro design, lightweight
+                build, and warm, punchy sound. They deliver great portability and value, making them a longtime
+                favorite among music lovers.
+            </p>
+            <button id="add_remove">Add To Cart</button>
+        </div>
+    </div>
+
+    <footer>Frequency Response | © 2025 9298-5266 Ontario Inc. All Rights Reserved. | Arhum Khan (8074114)</footer>
+
+    <script>
+        const button = document.getElementById("add_remove");
+
+        if (localStorage.getItem("ONOFF1") === null) {
+            localStorage.setItem("ONOFF1", "1");
+        }
+
+        function load() {
+            const item = localStorage.getItem("ONOFF1");
+            if (item === "0") {
+                button.textContent = "Remove";
+            } else {
+                button.textContent = "Add to Cart"
+            }
+        }
+
+        load();
+
+        button.addEventListener("click", change)
+
+        function change() {
+            const item = localStorage.getItem("ONOFF1");
+            if (item === "0") {
+                localStorage.setItem("ONOFF1", "1");
+                button.textContent = "Add to Cart"
+            } else {
+                localStorage.setItem("ONOFF1", "0");
+                button.textContent = "Remove";
+            }
+        }
+    </script>
+</body>
+
+</html>

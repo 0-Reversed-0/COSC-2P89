@@ -1,0 +1,163 @@
+<!--
+    Name: Arhum Khan
+    Brock username: jn23pr
+    Student number: 8074114
+    Assignment: COSC 2P89 — Assignment 2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Response</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..500&family=Doto:wght@100..500&family=Press+Start+2P&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-con" href="imgs/music-wave.png">
+
+    <style>
+        .body {
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            font-family: "Bitcount Grid Single", sans-serif;
+            color: white;
+            font-size: clamp(0.8rem, 1vw, 1rem);
+            margin: 1rem;
+            gap: 1rem;
+        }
+
+
+        .body #Product1 {
+            padding: 1vw;
+            background-color: rgb(125, 125, 125);
+        }
+
+        .body #Product2 {
+            padding: 1vw;
+            background-color: rgb(125, 125, 125);
+        }
+
+        .body #Product3 {
+            padding: 1vw;
+            background-color: rgb(125, 125, 125);
+        }
+
+        .body #Product4 {
+            padding: 1vw;
+            background-color: rgb(125, 125, 125);
+        }
+
+        .body p {
+            text-align: center;
+            font-family: Doto;
+        }
+
+        .body button {
+            display: block;
+            margin: 1rem auto 0 auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="top">
+        <h1>Cart</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </div>
+
+    <div class="body">
+        <div id="Product1">
+            <h2>Meze: Elite</h2>
+            <p>Price: $4000</p>
+            <button id="item1"></button>
+        </div>
+
+        <div id="Product2">
+            <h2>Koss: Porta Pros</h2>
+            <p>Price: $70</p>
+            <button id="item2"></button>
+        </div>
+
+        <div id="Product3">
+            <h2>Sennheiser: HD 800</h2>
+            <p>Price: $2,400</p>
+            <button id="item3"></button>
+        </div>
+
+        <div id="Product4">
+            <h2>Meze: Alba</h2>
+            <p>Price: $160</p>
+            <button id="item4"></button>
+        </div>
+    </div>
+
+    <footer> Frequency Response | © 2025 9298-5266 Ontario Inc. All Rights Reserved. | Arhum Khan (8074114) </footer>
+
+    <script>
+        if (cartEmpty()) {
+            const p = document.createElement("p");
+            p.textContent = "The cart is empty";
+            document.querySelector(".body").appendChild(p);
+        }
+
+        const productDivs = ["Product1", "Product2", "Product3", "Product4"];
+
+        for (let i = 0; i < productDivs.length; i++) {
+            const key = "ONOFF" + i;
+            const itemState = localStorage.getItem(key);
+
+            // If the item is "1" (not in cart), remove the div. ik its confusing i only thought as far as displaying text
+            if (itemState === "1") {
+                const div = document.getElementById(productDivs[i]);
+                if (div) {
+                    div.remove();
+                }
+            } else {
+                const item = "item" + (i + 1);
+                const btn = document.getElementById(item)
+                btn.textContent = "Remove";
+                btn.addEventListener("click", remove(i));
+            }
+        }
+
+        function remove(index) {
+            return function Remove() { // i had to return remove function so that it doesnt instantly run the function
+                const key = "ONOFF" + index;
+
+                localStorage.setItem(key, "1");
+
+                location.reload();
+            }
+        }
+
+        function cartEmpty() {
+            let cartempty = true;
+
+            for (let i = 0; i < 4; i++) {
+                const key = "ONOFF" + i;
+                const item = localStorage.getItem(key);
+
+                if (item === "0") {
+                    cartempty = false;
+                    break;
+                }
+            }
+
+            return cartempty;
+        }
+    </script>
+</body>
+
+</html>
